@@ -39,14 +39,19 @@ export function Body() {
   ]);
 
   const { messages, setMessages, handleInputChange, handleSubmit, input } = useChat({
-    api: "https://ads.megabrain.co/nexusai/api",
+    api: "https://ads.develop.megabrain.co/nexusai/api",
     initialMessages: initialMessages,
     onResponse: (resp) => {
       console.log('response received');
-      resp.json()
-      .then((data) => {
-        console.log('json received', data);
-        setMessages(((ms: any) => [...ms, data]) as any);
+      resp.text()
+      .then((text) => {
+        try {
+          console.log('text received', text);
+          const data = JSON.parse(text);
+          setMessages(((ms: any) => [...ms, data]) as any);
+        } catch (err) {
+          console.log('error parsing json', err);
+        }
       })
       .catch((err) => {
         console.log('error', err);
@@ -63,19 +68,8 @@ export function Body() {
           flexDirection: 'column',
         }}
       >
-        <ScrollView>
-          {messages.filter(m => m.role !== 'system').map(m => (
-            <View key={m.id} style={{ marginVertical: 8 }}>
-              <View>
-                <Text style={{ fontWeight: 700 }}>{m.role}</Text>
-                <Markdown>{m.content}</Markdown>
-              </View>
-            </View>
-          ))}
-        </ScrollView>
 
-
-        <View style={{ marginBottom: 10 }}>
+        <View style={{ marginBottom: 10, marginHorizontal: 8 }}>
           <TextInput
             style={{ 
               backgroundColor: 'white', 
@@ -102,6 +96,19 @@ export function Body() {
             autoFocus={true}
           />
         </View>
+
+
+
+        <ScrollView>
+          {messages.filter(m => m.role !== 'system').map(m => (
+            <View key={m.id} style={{ marginVertical: 8 }}>
+              <View>
+                <Text style={{ fontWeight: 700 }}>{m.role}</Text>
+                <Markdown>{m.content}</Markdown>
+              </View>
+            </View>
+          ))}
+        </ScrollView>
 
       </View>
     </SafeAreaView>
