@@ -8,25 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		172C33A4F5D861CB66910D50 /* libPods-nexusnative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EDD0F1FFB21DB29DC526AA1 /* libPods-nexusnative.a */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		4CAD11AD83ED00CC5E7F43C1 /* libPods-nexusnative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A7D5C2D38280EF830782DD /* libPods-nexusnative.a */; };
-		6A1C67F3B693B0402DE1045D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23D0A795F91C1EA6D33E98 /* ExpoModulesProvider.swift */; };
+		71C8D053CB1D76EB7A0BF769 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A620535A6979CA49089FF85F /* PrivacyInfo.xcprivacy */; };
+		A8B6D4BC11273E02E1DD6893 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B42A5810D58CDE368743D4 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		DF8B096ECF3B1BFE6CEF95D2 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 0D9569C7D10A6D86EE5595CC /* PrivacyInfo.xcprivacy */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0D9569C7D10A6D86EE5595CC /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = nexusnative/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* nexusnative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nexusnative.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = nexusnative/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = nexusnative/Info.plist; sourceTree = "<group>"; };
-		9D2CFC40F219068F9396DD69 /* Pods-nexusnative.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nexusnative.debug.xcconfig"; path = "Target Support Files/Pods-nexusnative/Pods-nexusnative.debug.xcconfig"; sourceTree = "<group>"; };
-		A10218E27630252E44858099 /* Pods-nexusnative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nexusnative.release.xcconfig"; path = "Target Support Files/Pods-nexusnative/Pods-nexusnative.release.xcconfig"; sourceTree = "<group>"; };
+		2BB8A1556088E328FBED60C8 /* Pods-nexusnative.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nexusnative.debug.xcconfig"; path = "Target Support Files/Pods-nexusnative/Pods-nexusnative.debug.xcconfig"; sourceTree = "<group>"; };
+		4684D5C158005F8C7293B103 /* Pods-nexusnative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nexusnative.release.xcconfig"; path = "Target Support Files/Pods-nexusnative/Pods-nexusnative.release.xcconfig"; sourceTree = "<group>"; };
+		6EDD0F1FFB21DB29DC526AA1 /* libPods-nexusnative.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nexusnative.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3B42A5810D58CDE368743D4 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-nexusnative/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		A620535A6979CA49089FF85F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = nexusnative/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = nexusnative/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		C3A7D5C2D38280EF830782DD /* libPods-nexusnative.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nexusnative.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC23D0A795F91C1EA6D33E98 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-nexusnative/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = nexusnative/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* nexusnative-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "nexusnative-Bridging-Header.h"; path = "nexusnative/nexusnative-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -37,13 +37,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CAD11AD83ED00CC5E7F43C1 /* libPods-nexusnative.a in Frameworks */,
+				172C33A4F5D861CB66910D50 /* libPods-nexusnative.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1027F5B64278C82B59B960FD /* nexusnative */ = {
+			isa = PBXGroup;
+			children = (
+				A3B42A5810D58CDE368743D4 /* ExpoModulesProvider.swift */,
+			);
+			name = nexusnative;
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* nexusnative */ = {
 			isa = PBXGroup;
 			children = (
@@ -53,28 +61,28 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				0D9569C7D10A6D86EE5595CC /* PrivacyInfo.xcprivacy */,
+				A620535A6979CA49089FF85F /* PrivacyInfo.xcprivacy */,
 			);
 			name = nexusnative;
+			sourceTree = "<group>";
+		};
+		14C30DF4EEB4F207C94DF78A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2BB8A1556088E328FBED60C8 /* Pods-nexusnative.debug.xcconfig */,
+				4684D5C158005F8C7293B103 /* Pods-nexusnative.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				C3A7D5C2D38280EF830782DD /* libPods-nexusnative.a */,
+				6EDD0F1FFB21DB29DC526AA1 /* libPods-nexusnative.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		70343FA8AB23A2CA1D80F461 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				9D2CFC40F219068F9396DD69 /* Pods-nexusnative.debug.xcconfig */,
-				A10218E27630252E44858099 /* Pods-nexusnative.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -91,8 +99,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				70343FA8AB23A2CA1D80F461 /* Pods */,
-				FA5B01EE6B1649CB675A6559 /* ExpoModulesProviders */,
+				14C30DF4EEB4F207C94DF78A /* Pods */,
+				8C88F7367F690695FF7851D9 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -107,6 +115,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8C88F7367F690695FF7851D9 /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				1027F5B64278C82B59B960FD /* nexusnative */,
+			);
+			name = ExpoModulesProviders;
+			sourceTree = "<group>";
+		};
 		BB2F792B24A3F905000567C9 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,22 +130,6 @@
 			);
 			name = Supporting;
 			path = nexusnative/Supporting;
-			sourceTree = "<group>";
-		};
-		C2C0B5F7B1552CAAF319E01B /* nexusnative */ = {
-			isa = PBXGroup;
-			children = (
-				CC23D0A795F91C1EA6D33E98 /* ExpoModulesProvider.swift */,
-			);
-			name = nexusnative;
-			sourceTree = "<group>";
-		};
-		FA5B01EE6B1649CB675A6559 /* ExpoModulesProviders */ = {
-			isa = PBXGroup;
-			children = (
-				C2C0B5F7B1552CAAF319E01B /* nexusnative */,
-			);
-			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,13 +140,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "nexusnative" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				ACF0E067E641C8A6FF3D4B07 /* [Expo] Configure project */,
+				86A17CB06F9FD3FCFD19C51D /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				182E2536F2239F9DEB05A35B /* [CP] Embed Pods Frameworks */,
+				8943813230600A66CD81A512 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,7 +196,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				DF8B096ECF3B1BFE6CEF95D2 /* PrivacyInfo.xcprivacy in Resources */,
+				71C8D053CB1D76EB7A0BF769 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,24 +240,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		182E2536F2239F9DEB05A35B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-nexusnative/Pods-nexusnative-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-nexusnative/Pods-nexusnative-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -298,7 +280,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-nexusnative/Pods-nexusnative-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ACF0E067E641C8A6FF3D4B07 /* [Expo] Configure project */ = {
+		86A17CB06F9FD3FCFD19C51D /* [Expo] Configure project */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -317,6 +299,24 @@
 			shellPath = /bin/sh;
 			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-nexusnative/expo-configure-project.sh\"\n";
 		};
+		8943813230600A66CD81A512 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-nexusnative/Pods-nexusnative-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-nexusnative/Pods-nexusnative-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -325,7 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				6A1C67F3B693B0402DE1045D /* ExpoModulesProvider.swift in Sources */,
+				A8B6D4BC11273E02E1DD6893 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,7 +334,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D2CFC40F219068F9396DD69 /* Pods-nexusnative.debug.xcconfig */;
+			baseConfigurationReference = 2BB8A1556088E328FBED60C8 /* Pods-nexusnative.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -370,7 +370,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A10218E27630252E44858099 /* Pods-nexusnative.release.xcconfig */;
+			baseConfigurationReference = 4684D5C158005F8C7293B103 /* Pods-nexusnative.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
