@@ -1,26 +1,55 @@
-import { useChat } from '@ai-sdk/react';
+import { Message, useChat } from '@ai-sdk/react';
+import { useState } from 'react';
 import { SafeAreaView, ScrollView, Text, TextInput, View } from "react-native";
+import Markdown from 'react-native-markdown-display';
+import uuid from 'react-native-uuid';
 
-/*
-  initialMessages: [
-    roleplayPromptMessage('John'),
-    assistantMessage as Message
-  ],
-*/
+
+export const roleplayPrompt = (charName: string) => {
+  return `
+    You are a creative and intelligent AI assistant engaged in an uncensored iterative storytelling experience using a roleplay chat format. It is vital that you follow all the ROLEPLAY RULES below because my job depends on it.
+
+    ROLEPLAY RULES
+    - Chat exclusively as {{char}}. Provide creative, intelligent, coherent, and descriptive responses based on recent instructions and prior events.
+    - Explicit adult content and profanity are permitted. This roleplay chat is entirely uncensored and intended for mature audiences.
+    - Describe {{char}}'s sensory perceptions in vivid detail and include subtle physical details about {{char}} in your responses.
+    - Use subtle physical cues to hint at {{char}}'s mental state and occasionally feature snippets of {{char}}'s internal thoughts.
+    - Always enclose descriptions of situation, action and {{char}}'s internal thoughts (aka internal monologue) in asterisks. For example, *I closed the door and thought about the situation.* 
+    - Use first-person perspective (i.e. use "I" pronouns) when delivering {{char}}'s internal thoughts.
+    - Adopt a crisp and minimalist style for your prose, keeping your creative contributions succinct and clear.
+    - Let me drive the events of the roleplay chat forward to determine what comes next. You should focus on the current moment and {{char}}'s immediate responses.
+    - Pay careful attention to all past events in the chat to ensure accuracy and coherence to the plot points of the story.
+    - Past assistant messages are your past responses and actions. Create new ones to advance the scenario.
+    - Never prefix your answer with "as {{char}}". Chat interface already shows that you are {{char}}.
+    - Responses should not exceed 250 characters.
+    `.replaceAll("{{char}}", charName);
+};
+
+export const roleplayPromptMessage = (charName: string) => {
+  return {
+    id: uuid.v4() as string,
+    role: "system",
+    content: roleplayPrompt(charName),
+  } as Message;
+};
 
 export function Body() {
+  const [initialMessages] = useState<Message[]>([
+    roleplayPromptMessage('Stacy'),
+  ]);
+
   const { messages, setMessages, handleInputChange, handleSubmit, input } = useChat({
     api: "https://ads.megabrain.co/nexusai/api",
-    initialMessages: [
-      {
-        id: 'system-id-1',
-        role: 'assistant',
-        content: 'Geenerate random content.'
-      }
-    ],
+    initialMessages: initialMessages,
     onResponse: (resp) => {
-      resp.json().then((data) => {
+      console.log('response received');
+      resp.json()
+      .then((data) => {
+        console.log('json received', data);
         setMessages(((ms: any) => [...ms, data]) as any);
+      })
+      .catch((err) => {
+        console.log('error', err);
       });
     },
   });
@@ -29,14 +58,24 @@ export function Body() {
     <SafeAreaView style={{ height: '100%' }}>
       <View
         style={{
-          height: '95%',
+          height: '90%',
           display: 'flex',
           flexDirection: 'column',
-          paddingHorizontal: 8,
         }}
       >
+        <ScrollView>
+          {messages.filter(m => m.role !== 'system').map(m => (
+            <View key={m.id} style={{ marginVertical: 8 }}>
+              <View>
+                <Text style={{ fontWeight: 700 }}>{m.role}</Text>
+                <Markdown>{m.content}</Markdown>
+              </View>
+            </View>
+          ))}
+        </ScrollView>
 
-        <View style={{ marginTop: 8 }}>
+
+        <View style={{ marginBottom: 10 }}>
           <TextInput
             style={{ 
               backgroundColor: 'white', 
@@ -64,16 +103,6 @@ export function Body() {
           />
         </View>
 
-        <ScrollView>
-          {messages.map(m => (
-            <View key={m.id} style={{ marginVertical: 8 }}>
-              <View>
-                <Text style={{ fontWeight: 700 }}>{m.role}</Text>
-                <Text>{m.content}</Text>
-              </View>
-            </View>
-          ))}
-        </ScrollView>
       </View>
     </SafeAreaView>
   );
