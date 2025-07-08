@@ -1,4 +1,5 @@
 import { Message, useChat } from '@ai-sdk/react';
+import { AdsProvider, InlineAd } from "@kontextso/sdk-react-native";
 import { useState } from 'react';
 import { SafeAreaView, ScrollView, Text, TextInput, View } from "react-native";
 import Markdown from 'react-native-markdown-display';
@@ -21,7 +22,7 @@ export const roleplayPrompt = (charName: string) => {
     - Pay careful attention to all past events in the chat to ensure accuracy and coherence to the plot points of the story.
     - Past assistant messages are your past responses and actions. Create new ones to advance the scenario.
     - Never prefix your answer with "as {{char}}". Chat interface already shows that you are {{char}}.
-    - Responses should not exceed 250 characters.
+    - Responses should not exceed 150 characters.
     `.replaceAll("{{char}}", charName);
 };
 
@@ -37,8 +38,10 @@ export function Body() {
   const [initialMessages] = useState<Message[]>([
     roleplayPromptMessage('Stacy'),
   ]);
+  const [userId] = useState<string>(() => uuid.v4() as string);
+  const [conversationId] = useState<string>(() => uuid.v4() as string);
 
-  const { messages, setMessages, handleInputChange, handleSubmit, input } = useChat({
+  const { messages, setMessages, handleInputChange, handleSubmit, input, isLoading } = useChat({
     api: "https://ads.develop.megabrain.co/nexusai/api",
     initialMessages: initialMessages,
     onResponse: (resp) => {
@@ -60,58 +63,73 @@ export function Body() {
   });
 
   return (
-    <SafeAreaView style={{ height: '100%' }}>
-      <View
-        style={{
-          height: '90%',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
+    <AdsProvider
+      // adServerUrl='http://localhost:3002'
+      adServerUrl='https://server.develop.megabrain.co'
+      enabledPlacementCodes={["inlineAd"]}
+      messages={messages}
+      userId={userId}
+      publisherToken="spicybrain-1234"
+      isLoading={isLoading}
+      logLevel="debug"
+      onAdClick={() => console.log("ad clicked")}
+      onAdView={() => console.log("ad viewed")}
+      conversationId={conversationId}
+    >
+      <SafeAreaView style={{ height: '100%' }}>
+        <View
+          style={{
+            height: '90%',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
+          <View style={{ marginBottom: 10, marginHorizontal: 8 }}>
+            <TextInput
+              style={{ 
+                backgroundColor: 'white', 
+                padding: 8, 
+                borderRadius: 8, 
+                borderWidth: 1, 
+                borderColor: 'black' 
+              }}
+              placeholder="Say something..."
+              value={input}
+              onChange={e =>
+                handleInputChange({
+                  ...e,
+                  target: {
+                    ...e.target,
+                    value: e.nativeEvent.text,
+                  },
+                } as unknown as React.ChangeEvent<HTMLInputElement>)
+              }
+              onSubmitEditing={e => {
+                handleSubmit(e);
+                e.preventDefault();
+              }}
+              autoFocus={true}
+            />
+          </View>
 
-        <View style={{ marginBottom: 10, marginHorizontal: 8 }}>
-          <TextInput
-            style={{ 
-              backgroundColor: 'white', 
-              padding: 8, 
-              borderRadius: 8, 
-              borderWidth: 1, 
-              borderColor: 'black' 
-            }}
-            placeholder="Say something..."
-            value={input}
-            onChange={e =>
-              handleInputChange({
-                ...e,
-                target: {
-                  ...e.target,
-                  value: e.nativeEvent.text,
-                },
-              } as unknown as React.ChangeEvent<HTMLInputElement>)
-            }
-            onSubmitEditing={e => {
-              handleSubmit(e);
-              e.preventDefault();
-            }}
-            autoFocus={true}
-          />
-        </View>
-
-
-
-        <ScrollView>
-          {messages.filter(m => m.role !== 'system').map(m => (
-            <View key={m.id} style={{ marginVertical: 8 }}>
-              <View>
-                <Text style={{ fontWeight: 700 }}>{m.role}</Text>
-                <Markdown>{m.content}</Markdown>
+          <ScrollView>
+            {messages.filter(m => m.role !== 'system').map(m => (
+              <View key={m.id} style={{ marginVertical: 8 }}>
+                <View>
+                  <Text style={{ fontWeight: 700 }}>{m.role}</Text>
+                  <Markdown>{m.content}</Markdown>
+                </View>
+                <InlineAd
+                  code="inlineAd"
+                  messageId={m.id}
+                />
               </View>
-            </View>
-          ))}
-        </ScrollView>
+            ))}
+          </ScrollView>
 
-      </View>
-    </SafeAreaView>
+        </View>
+      </SafeAreaView>
+    </AdsProvider>
   );
 
 
