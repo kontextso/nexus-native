@@ -1,9 +1,10 @@
-import { Message } from '@ai-sdk/react';
+import { Message as MessageType } from '@ai-sdk/react';
 import { InlineAd } from "@kontextso/sdk-react-native";
-import { ScrollView, Text, View } from "react-native";
-import Markdown from 'react-native-markdown-display';
+import { ScrollView, View } from "react-native";
+import { Message } from './Message';
 
-export function Body({ messages }: { messages: Message[] }) {
+
+export function Body({ messages }: { messages: MessageType[] }) {
   return (
     <View
       style={{
@@ -22,19 +23,9 @@ export function Body({ messages }: { messages: Message[] }) {
             key={m.id}
             style={{ marginVertical: 8 }}
           >
-            <View>
-              <Text
-                style={{ 
-                  fontSize: 20,
-                  fontWeight: 700
-                }}
-              >
-                {m.role}
-              </Text>
-              <Markdown>
-                {m.content}
-              </Markdown>
-            </View>
+            <Message 
+              message={m}
+            />
             <InlineAd
               code="inlineAd"
               messageId={m.id}
