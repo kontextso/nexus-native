@@ -1,21 +1,13 @@
 import { Message, useChat } from '@ai-sdk/react';
 import { AdsProvider } from "@kontextso/sdk-react-native";
 import { useState } from 'react';
-import { SafeAreaView } from "react-native";
+import { KeyboardAvoidingView, Platform, SafeAreaView } from "react-native";
 import uuid from 'react-native-uuid';
 import { Body } from './Body';
+import { AD_SERVER_URL, API_URL, PUBLISHER_TOKEN } from './constants';
 import { Footer } from './Footer';
 import { Header } from './Header';
 import { roleplayPromptMessage } from './utils';
-
-const API_URL = "https://ads.develop.megabrain.co/nexusai/api";
-// const API_URL = "http://localhost:3000/nexusai/api";
-
-const PUBLISHER_TOKEN = "spicybrain-1234"; 
-
-const AD_SERVER_URL = "https://server.develop.megabrain.co";
-// const AD_SERVER_URL = "http://localhost:3002";
-
 
 export function Chat() {
   const [initialMessages] = useState<Message[]>([
@@ -48,39 +40,42 @@ export function Chat() {
   });
 
   return (
-    <AdsProvider
-      adServerUrl={AD_SERVER_URL}
-      enabledPlacementCodes={["inlineAd"]}
-      messages={messages.filter(m => m.role !== 'system')}
-      userId={userId}
-      publisherToken={PUBLISHER_TOKEN}
-      isLoading={isLoading}
-      logLevel="debug"
-      onAdClick={() => console.log("ad clicked")}
-      onAdView={() => console.log("ad viewed")}
-      conversationId={conversationId}
+    <KeyboardAvoidingView
+      style={{
+        flex: 1,
+      }}
+      keyboardVerticalOffset={40}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
-      <SafeAreaView
-        style={{
-          flex: 1,
-        }}
+      <AdsProvider
+        adServerUrl={AD_SERVER_URL}
+        enabledPlacementCodes={["inlineAd"]}
+        messages={messages.filter(m => m.role !== 'system')}
+        userId={userId}
+        publisherToken={PUBLISHER_TOKEN}
+        isLoading={isLoading}
+        logLevel="debug"
+        onAdClick={() => console.log("ad clicked")}
+        onAdView={() => console.log("ad viewed")}
+        conversationId={conversationId}
       >
-        <Header />
-        <Body
-          messages={messages}
-        />
-        <Footer
-          input={input}
-          handleInputChange={handleInputChange}
-          handleSubmit={handleSubmit}
-        />
-      </SafeAreaView>
-    </AdsProvider>
+        <SafeAreaView
+          style={{
+            flex: 1,
+          }}
+        >
+          <Header />
+          <Body
+            messages={messages}
+            isLoading={isLoading}
+          />
+          <Footer
+            input={input}
+            handleInputChange={handleInputChange}
+            handleSubmit={handleSubmit}
+          />
+        </SafeAreaView>
+      </AdsProvider>
+    </KeyboardAvoidingView>
   );
-
-
-
-
-
-
 }

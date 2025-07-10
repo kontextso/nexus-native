@@ -1,10 +1,14 @@
 import { Message as MessageType } from '@ai-sdk/react';
 import { InlineAd } from "@kontextso/sdk-react-native";
-import { ScrollView, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import { Message } from './Message';
 
+interface BodyProps {
+  messages: MessageType[];
+  isLoading: boolean;
+}
 
-export function Body({ messages }: { messages: MessageType[] }) {
+export function Body({ messages, isLoading }: BodyProps) {
   return (
     <View
       style={{
@@ -18,7 +22,7 @@ export function Body({ messages }: { messages: MessageType[] }) {
         contentContainerStyle={{ padding: 16 }}
         keyboardShouldPersistTaps="handled"
       >
-        {messages.filter(m => m.role !== 'system').map(m => (
+        {messages.filter(m => m.role !== 'system').map((m, i) => (
           <View 
             key={m.id}
             style={{ marginVertical: 8 }}
@@ -32,6 +36,11 @@ export function Body({ messages }: { messages: MessageType[] }) {
             />
           </View>
         ))}
+        {isLoading && (
+          <View style={{ marginVertical: 8 }}>
+            <Text>Loading...</Text>
+          </View>
+        )}
       </ScrollView>
     </View>
   )

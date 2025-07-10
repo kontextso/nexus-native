@@ -1,4 +1,5 @@
-import { TextInput, View } from "react-native";
+import React from 'react';
+import { Button, TextInput, View } from 'react-native';
 
 interface FooterProps {
   input: string;
@@ -14,15 +15,19 @@ export function Footer({ input, handleInputChange, handleSubmit }: FooterProps) 
         backgroundColor: 'white',
         borderTopWidth: 1,
         borderColor: '#ccc',
+        flexDirection: 'row', // Arrange input and button horizontally
+        alignItems: 'center',
       }}
     >
       <TextInput
-        style={{ 
-          backgroundColor: 'white', 
-          padding: 8, 
-          borderRadius: 8, 
-          borderWidth: 1, 
-          borderColor: 'black' 
+        style={{
+          flex: 1, // Takes up remaining space
+          backgroundColor: 'white',
+          padding: 8,
+          borderRadius: 8,
+          borderWidth: 1,
+          borderColor: 'black',
+          marginRight: 8, // spacing between input and button
         }}
         placeholder="Say something"
         value={input}
@@ -41,6 +46,7 @@ export function Footer({ input, handleInputChange, handleSubmit }: FooterProps) 
         }}
         autoFocus={true}
       />
+      <Button title="Submit" onPress={e => handleSubmit(e as any)} />
     </View>
   );
 }
