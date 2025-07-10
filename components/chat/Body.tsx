@@ -42,8 +42,8 @@ export function Body() {
   const [conversationId] = useState<string>(() => uuid.v4() as string);
 
   const { messages, setMessages, handleInputChange, handleSubmit, input, isLoading } = useChat({
-    // api: "https://ads.develop.megabrain.co/nexusai/api",
-    api: "http://localhost:3000/nexusai/api",
+    api: "https://ads.develop.megabrain.co/nexusai/api",
+    // api: "http://localhost:3000/nexusai/api",
     initialMessages: initialMessages,
     onResponse: (resp) => {
       console.log('response received');
@@ -69,8 +69,8 @@ export function Body() {
 
   return (
     <AdsProvider
-      adServerUrl='http://localhost:3002'
-      // adServerUrl='https://server.develop.megabrain.co'
+      // adServerUrl='http://localhost:3002'
+      adServerUrl='https://server.develop.megabrain.co'
       enabledPlacementCodes={["inlineAd"]}
       messages={messages.filter(m => m.role !== 'system')}
       userId={userId}
