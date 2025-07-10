@@ -42,16 +42,21 @@ export function Body() {
   const [conversationId] = useState<string>(() => uuid.v4() as string);
 
   const { messages, setMessages, handleInputChange, handleSubmit, input, isLoading } = useChat({
-    api: "https://ads.develop.megabrain.co/nexusai/api",
+    // api: "https://ads.develop.megabrain.co/nexusai/api",
+    api: "http://localhost:3000/nexusai/api",
     initialMessages: initialMessages,
     onResponse: (resp) => {
       console.log('response received');
       resp.text()
       .then((text) => {
         try {
-          console.log('text received', text);
+          // console.log('text received', text);
           const data = JSON.parse(text);
-          setMessages(((ms: any) => [...ms, data]) as any);
+          data.createdAt = new Date();
+          console.log('data', data);
+          setMessages((ms => {
+            return [...ms, data]
+          }));
         } catch (err) {
           console.log('error parsing json', err);
         }
@@ -64,10 +69,10 @@ export function Body() {
 
   return (
     <AdsProvider
-      // adServerUrl='http://localhost:3002'
-      adServerUrl='https://server.develop.megabrain.co'
+      adServerUrl='http://localhost:3002'
+      // adServerUrl='https://server.develop.megabrain.co'
       enabledPlacementCodes={["inlineAd"]}
-      messages={messages}
+      messages={messages.filter(m => m.role !== 'system')}
       userId={userId}
       publisherToken="spicybrain-1234"
       isLoading={isLoading}
@@ -93,7 +98,7 @@ export function Body() {
                 borderWidth: 1, 
                 borderColor: 'black' 
               }}
-              placeholder="Say something..."
+              placeholder="Say something cool..."
               value={input}
               onChange={e =>
                 handleInputChange({
