@@ -5,4 +5,4 @@ export const API_URL = "https://ads.megabrain.co/nexusai/api";
 export const PUBLISHER_TOKEN = "spicybrain-1234"; 
 
 export const AD_SERVER_URL = "https://server.develop.megabrain.co";
-// const AD_SERVER_URL = "http://localhost:3002";
+// export const AD_SERVER_URL = "http://localhost:3002";

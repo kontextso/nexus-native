@@ -5,7 +5,7 @@ ROOT_DIR=$(dirname "$(dirname "$(realpath "$0")")")
 PROJECT_ADS_DIR="$ROOT_DIR/ads"
 PROJECT_NEXUS_NATIVE_DIR="$ROOT_DIR/nexus-native"
 
-SDK_REACT_DIR="$PROJECT_ADS_DIR/packages/sdk"
+SDK_REACT_DIR="$PROJECT_ADS_DIR/packages/sdk-react"
 SDK_REACT_NATIVE_DIR="$PROJECT_ADS_DIR/packages/sdk-react-native"
 
 echo "Building SDK React"
