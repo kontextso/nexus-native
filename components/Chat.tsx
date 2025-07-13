@@ -53,7 +53,6 @@ export function Chat() {
         messages={messages.filter(m => m.role !== 'system')}
         userId={userId}
         publisherToken={PUBLISHER_TOKEN}
-        isLoading={isLoading}
         logLevel="debug"
         onAdClick={() => console.log("ad clicked")}
         onAdView={() => console.log("ad viewed")}
