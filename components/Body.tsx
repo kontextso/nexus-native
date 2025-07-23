@@ -17,7 +17,7 @@ export function Body({ messages, isLoading }: BodyProps) {
     >
       <ScrollView
         style={{ 
-          flex: 1 
+          flex: 1,
         }}
         contentContainerStyle={{ padding: 16 }}
         keyboardShouldPersistTaps="handled"
@@ -33,6 +33,7 @@ export function Body({ messages, isLoading }: BodyProps) {
             <InlineAd
               code="inlineAd"
               messageId={m.id}
+              theme="v1-dark"
             />
           </View>
         ))}
