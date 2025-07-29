@@ -56,6 +56,7 @@ export function Chat() {
         logLevel="debug"
         onAdClick={() => console.log("ad clicked")}
         onAdView={() => console.log("ad viewed")}
+        onDebugEvent={(event, data) => console.log("debug event", event)}
         conversationId={conversationId}
       >
         <SafeAreaView
